@@ -1,0 +1,32 @@
+{
+  "name": "restle-elastic",
+  "version": "0.0.1",
+  "description": "Elasticsearch adapter for Restle.",
+  "main": "dist/lib/index.js",
+  "scripts": {
+    "test": "npm run test:lint && npm run test:server",
+    "clean": "rimraf dist",
+    "prepublish": "npm run clean && npm run build",
+    "build": "npm run build:lib && npm run build:test",
+    "build:lib": "mkdirp dist/lib && babel lib --out-dir dist/lib",
+    "build:test": "mkdirp dist/test && babel test --out-dir dist/test",
+    "test:lint": "eslint lib test",
+    "test:server": "npm run clean && npm run build && tape dist/test | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcslack/restle-elastic.git"
+  },
+  "author": "Dylan Slack <dylanslack@gmail.com> (http://www.dylanslack.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dcslack/restle-elastic/issues"
+  },
+  "homepage": "https://github.com/dcslack/restle-elastic#readme",
+  "files": [
+    "dist/lib",
+    "dist/test",
+    "lib/",
+    "test/"
+  ]
+}
